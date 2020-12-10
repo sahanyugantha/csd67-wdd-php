@@ -29,7 +29,7 @@
         echo "Answer : ".$total;
 
 
-        $is_married = true;
+        $is_married = false;
 
         if($is_married == true){
             echo "<p>Married</p>";
