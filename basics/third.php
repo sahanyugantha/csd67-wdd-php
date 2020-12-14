@@ -58,24 +58,7 @@
             echo "<p>".$key." - ".$value."</p>";
         }
 
-        echo "<hr/>";
-        //Multidimentional array.
-
-        echo "<h2>Multidimentional arrays</h2>";
-        $cars = array(
-            array("BMW", "520D", 2020),
-            array("Audi", "A5", 2017),
-            array("Toyota", "Axio", 2014)
-        );
-
-        echo "<p> Value ".$cars[1][0]."</p>";
-        echo "<p> Value ".$cars[2][1]."</p>";
-
-        // $users = array(
-        //     array("id"=>1, "name"=>"Sam", "age"=>23),
-        //     array("id"=>2, "name"=>"Will", "age"=>34),
-        //     array("id"=>3, "name"=>"Nick", "age"=>24)
-        // );
+       
 
 
     ?>
