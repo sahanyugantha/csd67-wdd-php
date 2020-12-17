@@ -46,7 +46,10 @@
             <input type="password" name="password" required/> <br/>
 
             <label>Enter mobile </label>
-            <input type="text" name="mobile" required/> <br/>
+            <input type="text" name="mobile" /> <br/>
+
+            <label>Enter address </label>
+            <input type="text" name="address" /> <br/>
 
             <input type="submit" name="btn-submit" value="Sign up" />
         
