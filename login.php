@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('db_connection.php');
 ?>
 
@@ -8,6 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+
     <style>
         body {
             min-height: 2vh;
@@ -42,6 +45,12 @@
     </style>
 </head>
 <body>
+
+    <?php
+
+        include('navbar.php');
+
+    ?>
 
     <div id="login-wrapper">
 
@@ -84,10 +93,26 @@
                if($num_rows == 1){
                    // echo "Successfully logged in";
 
+                   //id, username, email, password, mobile, address, role
+                   mysqli_stmt_bind_result($stmt, $id, $username, $email, $password, $mobile, $address, $role);
+
+                   while(mysqli_stmt_fetch($stmt)){
+
+                        //echo "Name ".$username;
+
+                        $_SESSION["email"] = $email;
+                        $_SESSION["username"] = $username;
+                        $_SESSION["mobile"] = $mobile;
+                        $_SESSION["address"] = $address;
+                        $_SESSION["role"] = $role;
+
+                   }
+
                    ob_start();
                    header("Location:index.php");
                    ob_end_flush();
                    exit();
+
                } else {
                 echo "Please enter valid email and password ";
                }

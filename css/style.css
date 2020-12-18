@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: beige;
+}
+#navbar{
+    background-color: #37955b;
+    padding: 0px 5px;
+}
+#navbar > a{
+    height: 30px;
+    background-color: #37955b;
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    margin: 0;
+    cursor: default;
+}
+
+#navbar > a:hover{
+    background-color: #308651;
+    color: #67f2be;
+}
