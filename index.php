@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once("db_connection.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,45 +9,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <style>
+        table, tr, th, td{
+            border: 1px solid #000000;
+        }
+        table{
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td{
+            font-size: 24px;
+            padding: 5px 8px;
+        }
+    </style>
 </head>
 <body>
     
     <?php
         include('navbar.php');
-    ?>
 
-    
-    <h1>Welcome to the PHP</h1>
+        $sql = "SELECT * FROM tbl_item";
 
-    <?php
+        $stmt = mysqli_prepare($conn,$sql);
 
-        echo "<p> Hello, World! </p>"; //recommend.
-        print "<p> This also can be used </p>"; // much slower than the echo.
-    
-        /**
-         * PHP Variables
-         */
+        $res = mysqli_stmt_execute($stmt);
 
-        $name = "Will Smith";
+        if($res){
 
-        //Concatination of strings with period symbol.
-        echo "<p> Hello ".$name."!</p>";
+            mysqli_stmt_store_result($stmt);
 
-        $num1 = 30.78;
-        $num2 = 42.50;
+            $num_rows = mysqli_stmt_affected_rows($stmt);
 
-        $total = $num1 + $num2;
-        echo "Answer : ".$total;
+            //id, name, description, qty
+            mysqli_stmt_bind_result($stmt, $id, $name, $desc, $qty);
+            
+            if($num_rows > 0){
+                
+                ?>
+                <div id="tbl-items">
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>DESCRIPTIPON</th>
+                            <th>QTY</th>
+                        </tr>
+
+                        <?php 
+
+                         while(mysqli_stmt_fetch($stmt)) { ?>
+                            
+                            <tr>
+                                <td><?php echo $id;  ?></td>
+                                <td><?php echo $name;  ?></td>
+                                <td><?php echo $desc;  ?></td>
+                                <td><?php echo $qty;  ?></td>
+                            </tr>
+
+                        <?php }  ?>
+                    
+                    </table>
+                </div>
+                
+                <?php
 
 
-        $is_married = false;
+            } else {
+                echo "No items available";
+            }
 
-        if($is_married == true){
-            echo "<p>Married</p>";
+
         } else {
-            echo "<p>Single</p>";
+            echo "<h3> Error occured while accessing database ".mysqli_stmt_error($stmt)."</h3>";
         }
-    
+        
     ?>
 
 </body>
