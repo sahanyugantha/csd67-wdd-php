@@ -24,4 +24,20 @@ body{
     background-color: #308651;
     color: #67f2be;
 }
+#item-edit{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url('https://www.glyphicons.com/img/glyphicons/basic/2x/glyphicons-basic-31-pencil@2x.png');
+    background-size: cover;
+}
+
+#item-del{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url('https://www.glyphicons.com/img/glyphicons/basic/2x/glyphicons-basic-17-bin@2x.png');
+    background-size: cover;
+}
+
 

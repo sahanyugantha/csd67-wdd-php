@@ -31,6 +31,12 @@
         session_destroy();
 
 
+        //Remove cookies
+        setcookie("logged_in", "", (time()- 100), "/");
+        setcookie("username", "", (time()-100), "/");
+
+
+
         ob_start();
         header("Location: login.php");
         ob_end_flush();

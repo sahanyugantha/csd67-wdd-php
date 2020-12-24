@@ -8,8 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/style.css">
     <style>
+        body{
+            background-color: #edd2f9;
+        }
         table, tr, th, td{
             border: 1px solid #000000;
         }
@@ -21,15 +24,13 @@
             font-size: 24px;
             padding: 5px 8px;
         }
+       
     </style>
 </head>
 <body>
     
     <?php
         include('navbar.php');
-
-
-        if(isset($_COOKIE["logged_in"])){
 
                 $sql = "SELECT * FROM tbl_item";
 
@@ -56,6 +57,8 @@
                                     <th>NAME</th>
                                     <th>DESCRIPTIPON</th>
                                     <th>QTY</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
 
                                 <?php 
@@ -67,6 +70,8 @@
                                         <td><?php echo $name;  ?></td>
                                         <td><?php echo $desc;  ?></td>
                                         <td><?php echo $qty;  ?></td>
+                                        <td><a id="item-edit" href=" <?php echo "item_edit.php?id=".$id;?> "></a></td>
+                                        <td><a id="item-del" href=" <?php echo "item_delete.php?id=".$id;?> "></a></td>
                                     </tr>
 
                                 <?php }  ?>
@@ -85,12 +90,7 @@
                     echo "<h3> Error occured while accessing database ".mysqli_stmt_error($stmt)."</h3>";
                 }
 
-            } else {
-                ob_start();
-                header("Location: login.php");
-                ob_end_flush();
-                exit();
-            }
+          
 
         
     ?>

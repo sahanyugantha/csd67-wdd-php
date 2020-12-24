@@ -1,4 +1,5 @@
 <?php
+    
     session_start();
     require_once('db_connection.php');
 ?>
@@ -105,6 +106,10 @@
                         $_SESSION["mobile"] = $mobile;
                         $_SESSION["address"] = $address;
                         $_SESSION["role"] = $role;
+
+                        setcookie("logged_in", true, (time()+60*60), "/");
+                        setcookie("username", $username, (time()+60*60), "/");
+
 
                    }
 
