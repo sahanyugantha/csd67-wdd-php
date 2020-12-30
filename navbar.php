@@ -4,7 +4,7 @@
     <!-- <a href="signup.php">Sign up</a> -->
     <?php if(isset($_SESSION['email']) && $_SESSION['email'] != null) { ?>
         <a href="logout.php">Sign out</a>
-        <img width="30" height="30" alt="NA" href="<?php echo 'img/default.png'; ?>" />
+        <img width="30" height="30" alt="NA" src="<?php echo 'img/'.$_SESSION['u-img']; ?>" />
         <a href="prfile.php"> <?php echo $_SESSION['username']; ?> </a>
 
         
