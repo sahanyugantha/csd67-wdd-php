@@ -11,6 +11,7 @@
 
 </head>
 
+<body>
 <form action="logout.php" method="post">
 
     <h3>Do really want to logout ? </h3>
@@ -45,3 +46,6 @@
     }
 
 ?>
+
+</body>
+</html>

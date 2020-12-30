@@ -41,7 +41,7 @@
     ?>
     <div id="signup-wrapper">
 
-        <form method="POST" action="register.php">
+        <form method="POST" action="register.php" enctype="multipart/form-data">
 
             <label>Enter username </label>
             <input type="text" name="username" required/> <br/>
@@ -57,6 +57,9 @@
 
             <label>Enter address </label>
             <input type="text" name="address" /> <br/>
+
+            <label>Please upload an image </label>
+            <input type="file" name="u-img" accept="image/*"> <br/>
 
             <input type="submit" name="btn-submit" value="Sign up" />
         

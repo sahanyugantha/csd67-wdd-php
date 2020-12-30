@@ -4,7 +4,10 @@
     <!-- <a href="signup.php">Sign up</a> -->
     <?php if(isset($_SESSION['email']) && $_SESSION['email'] != null) { ?>
         <a href="logout.php">Sign out</a>
+        <img width="30" height="30" alt="NA" href="<?php echo 'img/default.png'; ?>" />
         <a href="prfile.php"> <?php echo $_SESSION['username']; ?> </a>
+
+        
 
         <?php if(isset($_SESSION["role"])) {
                 if(strtolower($_SESSION["role"]) == "admin" ||  strtolower($_SESSION["role"]) == "manager"){

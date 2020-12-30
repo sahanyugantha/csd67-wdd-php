@@ -95,7 +95,7 @@
                    // echo "Successfully logged in";
 
                    //id, username, email, password, mobile, address, role
-                   mysqli_stmt_bind_result($stmt, $id, $username, $email, $password, $mobile, $address, $role);
+                   mysqli_stmt_bind_result($stmt, $id, $username, $email, $password, $mobile, $address, $role, $img);
 
                    while(mysqli_stmt_fetch($stmt)){
 
@@ -106,6 +106,7 @@
                         $_SESSION["mobile"] = $mobile;
                         $_SESSION["address"] = $address;
                         $_SESSION["role"] = $role;
+                        $_SESSION["u-img"] = $img;
 
                         setcookie("logged_in", true, (time()+60*60), "/");
                         setcookie("username", $username, (time()+60*60), "/");
